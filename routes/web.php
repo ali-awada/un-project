@@ -21,16 +21,24 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::prefix("admin")->middleware("auth")->group(function () {
-    Route::get("/",function(){
+Route::prefix("admin")->middleware(["auth", "superAdmin"])->group(function () {
+    Route::get("/", function () {
         return view('admin.dashboard');
     });
-    Route::resource("category", AdminCategory::class,[
+    Route::resource("category", AdminCategory::class, [
         'names' => 'adminCategory'
     ]);
-    Route::resource("brand", AdminBrand::class,[
+    Route::resource("brand", AdminBrand::class, [
         'names' => 'adminBrand'
     ]);
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::prefix("dashboard")->middleware(["auth"])->group(function () {
+    Route::get('/', function () {
+        return view('user.dashboard');
+    })->name('dashboard.index');
+    Route::resource('product', \App\Http\Controllers\ProductController::class)->except(["show"]);
+});

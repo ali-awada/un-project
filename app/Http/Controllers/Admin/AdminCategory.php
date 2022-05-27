@@ -58,7 +58,7 @@ class AdminCategory extends Controller
         $category->ar_name = $validated['ar_name'];
         $category->fr_name = $validated['fr_name'];
         $category->en_name = $validated['en_name'];
-        $category->parent_id = $validated['parent_id'];
+        $category->parent_id = isset($validated['parent_id']) ? $validated['parent_id'] : null;
         $category->image = $photo;
         $category->save();
 
@@ -91,7 +91,7 @@ class AdminCategory extends Controller
     public function edit(Request $request, Category $category)
     {
         $categories = Category::all()->where("parent_id",null);
-        
+
         return view('admin.category.edit', compact('category','categories'));
 
         // dd($categories);

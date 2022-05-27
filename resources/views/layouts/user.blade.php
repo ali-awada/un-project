@@ -61,11 +61,9 @@
                             </a>
 
 
-
-
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a id="navbarDropdown" class="dropdown-item" href="{{route('dashboard.index')}}">
-                                Dashboard
+                                    Dashboard
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -86,8 +84,12 @@
     <main class="container">
         <div class="container-fluid">
             <div class="row flex-nowrap">
-                <div class="col-auto col-md-3 col-xl-3 mt-4  bg-white" style="min-height: 80vh">
-                    @include('common.categories_side_bar')
+                <div class="col-auto col-md-3 col-xl-3 mt-4  bg-white d-flex flex-column gap-4 py-4 "
+                     style="min-height: 80vh">
+                    <a class="text-decoration-none" href="{{route('product.index')}}">Products</a>
+                    <a class="text-decoration-none" href="">Notifications</a>
+                    <a class="text-decoration-none" href="{{route('product.create')}}">Add Product</a>
+                    <a class="text-decoration-none" href="">Ask for delivery</a>
                 </div>
                 <div class="col py-3">
                     @yield('content')
