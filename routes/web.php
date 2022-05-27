@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminBrand;
 use App\Http\Controllers\Admin\AdminCategory;
+use App\Http\Controllers\Admin\AdminCurrency;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,9 @@ Route::prefix("admin")->middleware(["auth", "superAdmin"])->group(function () {
     ]);
     Route::resource("brand", AdminBrand::class, [
         'names' => 'adminBrand'
+    ]);
+    Route::resource("currency", AdminCurrency::class, [
+        'names' => 'adminCurrency'
     ]);
 });
 
