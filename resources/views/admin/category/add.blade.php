@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     <div class="row justify-content-center">
-        <div class="col-6 ">
+        <div class="col ">
             <div class="card">
                 <div class="card-header">
                     Create new category

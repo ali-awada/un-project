@@ -3,6 +3,9 @@
 use App\Http\Controllers\Admin\AdminBrand;
 use App\Http\Controllers\Admin\AdminCategory;
 use App\Http\Controllers\Admin\AdminCurrency;
+use App\Http\Controllers\UserCategory;
+use App\http\Controllers\UserProduct;
+use App\Http\Controllers\UserBrand;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,12 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
-
 Route::prefix("admin")->middleware(["auth", "superAdmin"])->group(function () {
     Route::get("/", function () {
         return view('admin.dashboard');
@@ -37,7 +35,10 @@ Route::prefix("admin")->middleware(["auth", "superAdmin"])->group(function () {
     ]);
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/category/{id}', [UserCategory::class, 'show'])->name('userCategory.show');
+Route::get('/product/{id}', [UserProduct::class, 'show'])->name('userPoduct.show');
+Route::get('/brand/{id}', [UserBrand::class, 'show'])->name('userBrand.show');
 
 
 Route::prefix("dashboard")->middleware(["auth"])->group(function () {

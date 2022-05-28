@@ -15,7 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -86,10 +86,10 @@
     <main class="container">
         <div class="container-fluid">
             <div class="row flex-nowrap">
-                <div class="col-auto col-md-3 col-xl-3 mt-4  bg-white" style="min-height: 80vh">
+                <div class="col-2 col-md-3 col-xl-3 mt-4  bg-white" style="min-height: 80vh">
                     @include('common.categories_side_bar')
                 </div>
-                <div class="col py-3">
+                <div class="col-10 py-3">
                     @yield('content')
                 </div>
             </div>
