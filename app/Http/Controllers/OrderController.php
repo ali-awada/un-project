@@ -34,4 +34,11 @@ class OrderController extends Controller
         $not2->save();
         return redirect()->back();
     }
+
+
+    public function all(Request $request)
+    {
+        $orders = Order::where('buyer_id','=',auth()->user()->id)->orWhere('owner_id','=',auth()->user()->id)->with('currency')->get();
+        return view('user.order',compact('orders'));
+    }
 }

@@ -43,6 +43,10 @@ Route::prefix("admin")->middleware(["auth", "superAdmin"])->group(function () {
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/category/{id}', [UserCategory::class, 'show'])->name('userCategory.show');
+Route::get('/search/{q}', function (\Illuminate\Http\Request $request) {
+    $products = \App\Models\Product::where('en_name', 'like' , '%' . $request->q . '%',)->get();
+    return view('search', compact('products'));
+})->name('search');
 Route::get('/product/{id}', [UserProduct::class, 'show'])->name('userPoduct.show');
 Route::get('/brand/{id}', [UserBrand::class, 'show'])->name('userBrand.show');
 Route::get('/contact', [ContactController::class, 'add'])->name('contact');
@@ -57,4 +61,5 @@ Route::prefix("dashboard")->middleware(["auth"])->group(function () {
     })->name('dashboard.index');
     Route::resource('product', \App\Http\Controllers\ProductController::class)->except(["show"]);
     Route::get("/notifications", [\App\Http\Controllers\NotificationController::class, 'all'])->name('notis');
+    Route::get("/orders", [\App\Http\Controllers\OrderController::class, 'all'])->name('user.orders');
 });

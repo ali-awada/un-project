@@ -106,7 +106,7 @@
                     <a class="text-decoration-none" href="{{route('product.index')}}">Products</a>
                     <a class="text-decoration-none" href="{{route('notis')}}">Notifications</a>
                     <a class="text-decoration-none" href="{{route('product.create')}}">Add Product</a>
-                    <a class="text-decoration-none" href="">Ask for delivery</a>
+                    <a class="text-decoration-none" href="{{route('user.orders')}}">Orders</a>
                 </div>
                 <div class="col-9 py-3">
                     @yield('content')
