@@ -103,7 +103,7 @@
                         </select>
                         <br>
                         <div class="mb-3">
-                            <label for="images" class="form-label">product images</label>
+                            <label for="images" class="form-label">Product images</label>
                             <input class="form-control @error('image') is-invalid @enderror" type="file" name="image[]"
                                 id="image" multiple accept="image/gif, image/jpeg, image/png, image/webp">
                             @error('image')

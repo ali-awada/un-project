@@ -17,7 +17,9 @@ class CurrencyFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'symbole' => $this->faker->currencyCode,
+            'rate' => $this->faker->randomFloat(),
         ];
     }
 }

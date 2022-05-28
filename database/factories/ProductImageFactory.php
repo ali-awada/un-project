@@ -17,7 +17,9 @@ class ProductImageFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'url' => $this->faker->imageUrl(),
+//            'product_id' =>PRoduct::all()->random()->id,
+
         ];
     }
 }
