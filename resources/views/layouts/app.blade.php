@@ -41,9 +41,10 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
                     <li>
-                        <form class="form-inline my-2 my-lg-0">
+                        <form class="form-inline my-2 my-lg-0 d-flex gap-4 mr-4" action="{{route('search','product')}}">
                             <input class="form-control mr-sm-2" type="search" placeholder="Search Products"
-                                   aria-label="Search">
+                                   aria-label="Search" name="q">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
                     </li>
                     <!-- Authentication Links -->
@@ -100,6 +101,14 @@
             </div>
         </div>
     </main>
+    <div class="d-flex bg-dark text-white">
+        <div class="container">
+            <div class="py-4 d-flex gap-4">
+                <a href="{{route('contact')}}">Contact us</a>
+                <a href="{{route('about')}}">About us</a>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

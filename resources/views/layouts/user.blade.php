@@ -74,8 +74,26 @@
                                 </form>
                             </div>
                         </li>
+<<<<<<< HEAD
                         @endguest
                     </ul>
+=======
+                    @endguest
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <main class="container">
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+                <!-- col-md-3 col-xl-3  chelton-->
+                <div class="col-3  mt-4  bg-white d-flex flex-column gap-4 py-4 " style="min-height: 80vh">
+                    <a class="text-decoration-none" href="{{route('product.index')}}">Products</a>
+                    <a class="text-decoration-none" href="{{route('notis')}}">Notifications</a>
+                    <a class="text-decoration-none" href="{{route('product.create')}}">Add Product</a>
+                    <a class="text-decoration-none" href="{{route('user.orders')}}">Orders</a>
+>>>>>>> 0712c59e4e26bd564c188fe270f7465852befa13
                 </div>
 
             </div>
