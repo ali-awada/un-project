@@ -75,8 +75,7 @@ class AdminCurrency extends Controller
     {
 
         return view('admin.currency.edit', compact('currency'));
-
-        // dd($categories);
+        // dd($request->all());
     }
 
     /**
@@ -90,16 +89,17 @@ class AdminCurrency extends Controller
     {
 
         $validated = $request->validate([
-            'name' => 'required|unique:currencies|min:3',
-            'symbol' => 'required|unique:currencies',
-            'rate' => 'required|number',
+            'name' => 'required|unique:currencies,id|min:3',
+            'symbole' => 'required|unique:currencies,id',
+            'rate' => 'required|integer',
 
         ]);
-        $currency = new Currency();
+        // $currency = new Currency();
         $currency->name = $validated['name'];
-        $currency->symbol = $validated['symbol'];
+        $currency->symbole = $validated['symbole'];
         $currency->rate = $validated['rate'];
         $currency->save();
+
         return redirect()->route("adminCurrency.index");
     }
 

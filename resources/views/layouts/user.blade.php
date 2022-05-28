@@ -19,22 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-        #inp-search {
-            width: 300px;
-            border: 1px solid blue;
-        }
 
-        #inp-search:focus {
-            border: 1px solid red;
-        }
-
-        #nav1 {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-    </style>
 </head>
 
 <body>
@@ -47,7 +32,6 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="search" style=""> <input type="text" id="inp-search"></div>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->

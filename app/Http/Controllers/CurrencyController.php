@@ -58,7 +58,7 @@ class CurrencyController extends Controller
      */
     public function edit(Currency $currency)
     {
-        //
+        return view('admin.currency.edit', compact("currency"));
     }
 
     /**
