@@ -40,6 +40,12 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
+                    <li>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search Products"
+                                   aria-label="Search">
+                        </form>
+                    </li>
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
@@ -61,11 +67,9 @@
                             </a>
 
 
-
-
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a id="navbarDropdown" class="dropdown-item" href="{{route('dashboard.index')}}">
-                                Dashboard
+                                    Dashboard
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -80,6 +84,7 @@
                         </li>
                     @endguest
                 </ul>
+
             </div>
         </div>
     </nav>

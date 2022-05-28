@@ -27,7 +27,8 @@ return new class extends Migration
             $table->foreignIdFor(Category::class);
             $table->foreignIdFor(Currency::class);
             $table->foreignIdFor(Brand::class);
-            
+            $table->foreignIdFor(\App\Models\User::class);
+
 
             $table->timestamps();
         });

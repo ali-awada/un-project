@@ -1,10 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="row">
+        <h2 class="my-4">Latest Products</h2>
+    </div>
 <div class="row">
     @foreach($products as $product)
 
-    <div class="col-3 mb-4">
+    <div class="col-4 mb-4">
         <div class="card" style="height:100%;">
             <img class="card-img-top" src="{{count($product->images) != 0 ? url($product->images[0]->url) : url(asset('images/download.png')) }}" alt="Card image cap">
             <div class="card-body">

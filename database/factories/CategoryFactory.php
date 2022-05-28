@@ -17,7 +17,11 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'en_name' => $this->faker->name,
+            'ar_name' => $this->faker->name,
+            'fr_name' => $this->faker->name,
+            'image' => $this->faker->imageUrl(),
+            'parent_id' =>null,
         ];
     }
 }
