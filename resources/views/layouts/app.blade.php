@@ -100,6 +100,14 @@
             </div>
         </div>
     </main>
+    <div class="d-flex bg-dark text-white">
+        <div class="container">
+            <div class="py-4 d-flex gap-4">
+                <a href="{{route('contact')}}">Contact us</a>
+                <a href="{{route('about')}}">About us</a>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

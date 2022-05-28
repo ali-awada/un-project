@@ -46,6 +46,9 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="{{route('adminCurrency.index')}}">Currencies</a>
                     </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{route('contact.admin')}}">Contact message</a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

@@ -2,85 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Models\OrderProduct;
+use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function add(Request $request)
     {
-        //
-    }
+        $order = new Order();
+        $not = new Notification();
+        $not->text = 'New order has been placed';
+        $not->read = false;
+        $not->user_id = $request->owner_id;
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreOrderRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreOrderRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateOrderRequest  $request
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateOrderRequest $request, Order $order)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Order $order)
-    {
-        //
+        $not2 = new Notification();
+        $not2->text = 'Your order has been requested, check your notifactions for more info';
+        $not2->read = false;
+        $not2->user_id = $request->buyer_id;
+        $order->total = $request->total;
+        $order->owner_id = $request->owner_id;
+        $order->buyer_id = $request->buyer_id;
+        $order->confirmed_by_buyer = false;
+        $order->currency_id = $request->buyer_id;
+        $order->status = false;
+        $order->save();
+        $not->save();
+        $not2->save();
+        return redirect()->back();
     }
 }
